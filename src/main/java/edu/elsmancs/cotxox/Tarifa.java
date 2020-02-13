@@ -48,9 +48,7 @@ public class Tarifa{
     public double getCosteTotalEsperado(Carrera carrera){
         double tiempoEsperadoDouble = getCosteTiempo(carrera.getTiempoEsperado());
         double costeTotal = getCosteDistancia(carrera.getDistancia()) + tiempoEsperadoDouble;
-        double comision = getPorcentajeComision() * costeTotal;
-        double costeTotalComisionado = costeTotal + comision;
-        if (costeTotalComisionado <= getCosteMinimo()) costeTotalComisionado = getCosteMinimo();
-        return costeTotalComisionado;
+        if (costeTotal <= getCosteMinimo()) costeTotal = getCosteMinimo();
+        return costeTotal;
     }
 }
