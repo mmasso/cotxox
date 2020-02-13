@@ -53,8 +53,15 @@ public class Carrera {
     /**
      * @return the costeEsperado
      */
-    public int getCosteEsperado() {
-        return costeEsperado;
+    public double getCosteEsperado() {
+        return tarifa.getCosteTotalEsperado(this);
+    }
+
+    /**
+     * @return the tiempoEsperado
+     */
+    public int getTiempoEsperado() {
+        return tiempoEsperado;
     }
 
     public void setOrigen(String origen){

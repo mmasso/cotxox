@@ -5,7 +5,6 @@ public class Tarifa{
     private final double costeMilla = 1.35;
     private final double costeMinuto = 0.35;
     private final double costeMinimo = 5.00;
-    private int costeTiempo = 0;
     private double porcentajeComision = 0.2;
 
     /**
@@ -47,7 +46,8 @@ public class Tarifa{
     }
 
     public double getCosteTotalEsperado(Carrera carrera){
-        double costeTotal = getCosteDistancia(carrera.getDistancia()) + getCosteTiempo(carrera.getTiempoEsperado());
+        double tiempoEsperadoDouble = getCosteTiempo(carrera.getTiempoEsperado());
+        double costeTotal = getCosteDistancia(carrera.getDistancia()) + tiempoEsperadoDouble;
         double comision = getPorcentajeComision() * costeTotal;
         double costeTotalComisionado = costeTotal + comision;
         if (costeTotalComisionado <= getCosteMinimo()) costeTotalComisionado = getCosteMinimo();
