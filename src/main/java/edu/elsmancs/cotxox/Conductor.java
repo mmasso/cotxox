@@ -7,32 +7,66 @@ public class Conductor {
 	private final String nombre;
     private String matricula;
     private String modelo;
-    private int valoracionMedia;
-    private ArrayList<Integer> valoraciones = new ArrayList<>();
+    private double valoracionMedia;
+    private ArrayList<Byte> valoraciones = new ArrayList<>();
+    private boolean ocupado = false;
 
     Conductor(String nombre) {
         this.nombre = nombre;
     }
 
-	public void setMatricula(String matricula) {
+	void setMatricula(String matricula) {
         this.matricula = matricula;
 	}
 
-	public void setModelo(String modelo) {
+	void setModelo(String modelo) {
         this.modelo = modelo;
 	}
 
-	public void setValoracion(byte valoracion) {
-        int valoracionInt = valoracion;
-        valoraciones.add(valoracionInt);
-        int total = 0;
-        for(Integer valor : valoraciones){
+	void setValoracion(byte valoracion) {
+        valoraciones.add(valoracion);
+        double total = 0;
+        for(byte valor : valoraciones){
             total += valor;
         }
-        int media = total/valoraciones.size();
+        double media = total/valoraciones.size();
         this.valoracionMedia = media;
-	}
+    }
     
+    void setOcupado(boolean ocupacion){
+        this.ocupado = ocupacion;
+    }
+    
+    public boolean isOcupado(){
+        return this.ocupado;
+    }
+    
+    /**
+     * @return the nombre
+     */
+    public String getNombre() {
+        return nombre;
+    }
 
+    /**
+     * @return the modelo
+     */
+    public String getModelo() {
+        return modelo;
+    }
+
+    /**
+     * @return the matricula
+     */
+    public String getMatricula() {
+        return matricula;
+    }
+
+    /**
+     * @return the valoracionMedia
+     */
+    public double getValoracion() {
+        return valoracionMedia;
+    }
 
 }
